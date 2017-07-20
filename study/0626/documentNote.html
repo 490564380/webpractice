@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document Note</title>
+    <style>
+        #box {
+            width: 200px;
+            height: 300px;
+            background: #cccccc;
+            border: 1px dashed red;
+        }
+
+        #box div {
+            width: 40px;
+            height: 40px;
+            background: #fa3;
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+<div id="box">
+    <div id="first_child">first</div>
+</div>
+
+</body>
+
+<script>
+    var box = document.getElementById("box");
+    //    demo 1:  appendChild
+    var createdDiv = document.createElement("div");
+    box.appendChild(createdDiv);//添加到box内，first后面
+
+    //    demo 2.1: insertBefore
+    var createdDiv2 = document.createElement("div");
+    var firstChild = document.getElementById("first_child");
+    box.insertBefore(createdDiv2, firstChild);//插在前面
+
+    //demo 2.2: 移动
+    box.insertBefore(createdDiv, firstChild);//移动，createdDiv移动到firstChild前面
+    //demo 2.3:
+    var createdDiv3 = document.createElement("div");
+    box.insertBefore(createdDiv3, null);//插入到最后
+
+    //demo 3: 删除
+    box.onclick = function () {
+        box.removeChild(firstChild);//删除节点
+    }
+
+    //demo 4.1: 克隆
+    var childrenNodes = box.children;
+    var clone = childrenNodes[2].cloneNode();//不复制里面的内容，文字也没有
+    box.appendChild(clone);
+    //demo 5：deep clone
+    var deepClone = childrenNodes[2].cloneNode(true);
+    box.appendChild(deepClone);//里面文字、节点、id等属性都会被复制。
+    //demo 6: clone parent
+    box.parentNode.appendChild(box.cloneNode(true));
+
+
+</script>
+
+</html>

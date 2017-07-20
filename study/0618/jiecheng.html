@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<lable for="input_num">请输入数字</lable>
+<input type="text" id="input_num"><span id="notify"></span> <br>
+<lable for="result">该数的阶乘为</lable>
+<input type="text" id="result">
+<script>
+    function $(id) {
+        return document.getElementById(id);
+    }
+    $("input_num").select();
+    $("input_num").oninput = function () {
+        var inputNum = 0;
+        if (!isNaN(this.value) && this.value != "") {
+            inputNum = parseInt(this.value);
+        }
+        var result = 1;
+        for (var i = 1; i < inputNum; i++) {
+            result *= i;
+        }
+        $("result").value = result * inputNum;
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #my_image {
+            width: 200px;
+            height: 200px;
+        }
+    </style>
+</head>
+<body>
+<img src="images/jd1.png" alt="" id="my_image">
+<script>
+    var my_image = document.getElementById("my_image");
+    my_image.onmouseover=function () {
+        my_image.src="images/jd2.png";
+    }
+    my_image.onmouseout=function () {
+        my_image.src="images/jd1.png";
+    }
+
+</script>
+</body>
+</html>

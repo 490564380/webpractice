@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Inline Java Script</title>
+    <script src="myjavascript.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        window.onload = function () {
+
+            var my_button = document.getElementById("my_button");
+            my_button.onclick = function () {
+                alert("I am Zhang Hua");
+            }
+        }
+    </script>
+</head>
+<body>
+<button id="my_button" class="my_button" onclick="alert('click me')">click me</button>
+
+</body>
+</html>

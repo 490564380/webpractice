@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Array</title>
+    <style>
+        .normal {
+            width: 100px;
+            height: 100px;
+            background-color: aqua;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+<div class="normal"></div>
+<div class="normal test"></div>
+<div class="normal"></div>
+<div class="normal test"></div>
+<div class="normal"></div>
+<div class="normal"></div>
+<div class="normal"></div>
+<div class="normal test"></div>
+<div class="normal"></div>
+<div class="normal"></div>
+</body>
+</html>
+<script>
+    function getElementsByClassName(className) {
+        if (document.getElementsByClassName) {
+            return document.getElementsByClassName(className);
+        } else {
+            var allElements = document.getElementsByTagName("*");
+            var resultArr = [];
+            for (var i = 0, len = allElements.length; i < len; i++) {
+                var element = allElements[i];
+                var classNames = element.className.split(" ");
+                for (var j = 0, namesLen = classNames.length; j < namesLen; j++) {
+                    if (classNames[j] == className) {
+                        resultArr.push(element);
+                    }
+                }
+            }
+            return resultArr;
+        }
+    }
+
+    var tests = getElementsByClassName("test");
+    for (var i = 0, len = tests.length; i < len; i++) {
+        tests[i].style.backgroundColor = "#ccc";
+    }
+</script>

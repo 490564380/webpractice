@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        #top_body {
+            padding-top: 50px;
+            height: 150px;
+            line-height: 150px;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        body {
+            background: url("images/1.jpg") no-repeat top center;
+        }
+    </style>
+</head>
+<body>
+<div id="top_body">
+    <img id="first" src="images/1.jpg" width="150px">
+    <img id="second" src="images/2.jpg" width="150px">
+    <img id="third" src="images/3.jpg" width="150px">
+    <img id="fourth" src="images/4.jpg" width="150px">
+    <img id="fifth" src="images/5.jpg" width="150px">
+</div>
+<script>
+    var first = document.getElementById("first");
+    var second = document.getElementById("second");
+    var third = document.getElementById("third");
+    var fourth = document.getElementById("fourth");
+    var fifth = document.getElementById("fifth");
+    first.onclick = function () {
+        document.body.style.backgroundImage ="url(images/1.jpg)"
+    }
+    second.onclick = function () {
+        document.body.style.backgroundImage ="url(images/2.jpg)"
+    }
+    third.onclick = function () {
+        document.body.style.backgroundImage ="url(images/3.jpg)"
+    }
+    fourth.onclick = function () {
+        document.body.style.backgroundImage ="url(images/4.jpg)"
+    }
+    fifth.onclick = function () {
+        document.body.style.backgroundImage ="url(images/5.jpg)"
+    }
+</script>
+</body>
+</html>

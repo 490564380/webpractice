@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #top_div {
+            width: 200px;
+            height: 200px;
+            background-color: aqua;
+            margin: 100px;
+        }
+
+        #bellow {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            margin: 100px;
+        }
+
+        #demo {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+        }
+
+    </style>
+</head>
+<body>
+<div id="top_div"></div>
+<div id="bellow"></div>
+<div id="demo"></div>
+
+<script>
+    var top_div = document.getElementById("top_div");
+    top_div.onclick = function () {
+//        top_div.style.display = "none";
+        top_div.style.visibility = "hidden";
+    }
+
+    var bellow = document.getElementById("bellow");
+    bellow.onclick = function () {
+        top_div.style.visibility = "visible";
+    }
+
+    var demo = document.getElementById("demo");  //获得id为demo的div盒子给demo
+    demo.onclick = function(){
+        demo.style.width = "400px";
+    }
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Interval</title>
+</head>
+<body>
+<input type="text">
+<button id="btn">click to send message</button>
+</body>
+</html>
+<script>
+    var btn = document.getElementById("btn");
+    var timer = null;
+    var duration;
+
+    btn.onclick = function () {
+        duration = 5;
+        btn.disabled = true;
+        timer = setInterval(sendMessage, 1000);
+
+    }
+
+    function sendMessage() {
+        if (duration > 0) {
+            duration--;
+            btn.innerHTML = "(" + duration + ")" + "秒后重新发送"
+        } else {
+            btn.innerHTML = "点击重新发送";
+            btn.disabled = false;
+            clearInterval(timer);
+        }
+    }
+</script>

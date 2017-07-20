@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Translation</title>
+    <style>
+        .rail {
+            width: 500px;
+            height: 100px;
+            background: green;
+            position: relative;
+        }
+
+        #box {
+            width: 100px;
+            height: 100px;
+            background: pink;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+    </style>
+</head>
+<body>
+<div class="rail">
+    <div id="box"></div>
+</div>
+</body>
+</html>
+<script>
+    var box = document.getElementById("box");
+    var targetLenght = 400;
+    var length = 0;
+    var timer = setInterval(autoPlay, 30);
+
+    function autoPlay() {
+        length = length + (targetLenght - length) / 25;
+        if (length <= 400) {
+            box.style.left = length + "px";
+        } else {
+            clearInterval(timer)
+        }
+    }
+</script>

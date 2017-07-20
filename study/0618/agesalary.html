@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>age salary</title>
+
+</head>
+<body>
+<label for="age">工龄</label><input type="text" id="age">
+<label for="salary">工资</label><input type="text" id="salary">
+<button id="calculate">计算</button>
+<input type="text" id="result">
+<script>
+    function $(id) {
+        return document.getElementById(id);
+    }
+
+    $("calculate").onclick=function () {
+        var result;
+        switch (parseInt($("age").value)){
+            case 0:
+            case 1:
+                result=parseInt($("salary").value)*1.1;
+                break;
+            case 2:
+            case 3:
+            case 4:
+                result=parseInt($("salary").value)*1.15;
+                break;
+            default:
+                result=parseInt($("salary").value)*1.2;
+                break;
+
+        }
+        $("result").value=result;
+    }
+</script>
+</body>
+</html>

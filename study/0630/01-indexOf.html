@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>indexOf</title>
+</head>
+<body>
+请输入字符串：<input type="text" id="strInput"><br>
+请输入要查询的字符： <input type="text" id="search"><br>
+<button id="search_button">从前面开始查询结果</button>
+</body>
+</html>
+<script>
+    var search_button = document.getElementById("search_button");
+    search_button.onclick = function () {
+        var strInput = document.getElementById("strInput");//必须写在onclick内部
+        var search = document.getElementById("search");//必须写在onclick内部
+        var str = strInput.value;
+        var search = search.value;
+        var index = str.lastIndexOf(search);
+        alert(index);
+    }
+</script>

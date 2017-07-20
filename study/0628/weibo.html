@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>wei bo</title>
+    <style>
+        ul {
+            list-style: none;
+        }
+
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .box {
+            width: 600px;
+            height: auto;
+            margin: 0 auto;
+            border: 1px solid #000000;
+            padding: 10px 0px;
+            text-align: center;
+        }
+
+        .box textarea {
+            width: 400px;
+            height: 200px;
+        }
+
+        .list-container {
+            margin: 0 100px 0 110px;
+        }
+
+        .list-item {
+            text-align: left;
+            border-bottom: 1px dashed #cccccc;
+            position: relative;
+        }
+
+        .del-button {
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+
+    </style>
+</head>
+<body>
+<div class="box">
+    微博发布 <textarea name="txt" id="txt" cols="30" rows="10"></textarea>
+    <button id="submit">submit</button>
+    <ul id="list-container" class="list-container">
+
+    </ul>
+
+</div>
+</body>
+</html>
+<script>
+    var listContainer = document.getElementById("list-container");
+
+    //deleteButton
+    var delButton = document.createElement("button");
+    delButton.setAttribute("class", "del-button");
+    delButton.innerHTML = "delete";
+
+    var submit = document.getElementById("submit");
+    submit.onclick = function () {
+        var txt = document.getElementById("txt");
+        var value = txt.value;
+        if (!value) {
+            alert("不能为空");
+            return;
+        }
+        //1.  set text area empty
+        txt.value = "";
+        //2.  增加li
+        var liElement = document.createElement("li");
+        liElement.setAttribute("class", "list-item");
+        var lis = listContainer.children;
+        if (lis.length == 0) {
+            listContainer.appendChild(liElement);
+        } else {
+            listContainer.insertBefore(liElement, lis[0]);
+        }
+        liElement.innerHTML = value;
+
+        //3. add delete button to liElement
+        liElement.appendChild(delButton.cloneNode(true));
+
+//        4.set click listener
+        var buttons = listContainer.getElementsByTagName("button");
+        for (var i = 0, len = buttons.length; i < len; i++) {
+            buttons[i].onclick = function () {
+                listContainer.removeChild(this.parentNode);
+            }
+        }
+    }
+</script>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tao bao search box</title>
+    <style>
+        #txt {
+            width: 500px;
+            height: 40px;
+            position: relative;
+        }
+
+        #searchHint {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            color: #aaa;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            alert(isNaN("2"+"3"));
+            function $(hhhhh) {
+                return document.getElementById(hhhhh);
+            }
+
+            var seachbox = $("txt");
+            seachbox.focus();
+            seachbox.oninput = function () {
+                if (this.value == ""){
+                    $("searchHint").style.display = "block"
+                } else {
+                    $("searchHint").style.display = "none"
+                }
+
+            }
+
+        }
+    </script>
+</head>
+<body>
+<input type="text" id="txt">
+<lable for="txt" id="searchHint">618秒杀</lable>
+</body>
+</html>

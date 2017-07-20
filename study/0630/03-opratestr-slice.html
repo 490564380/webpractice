@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Operate String Slice</title>
+</head>
+<body>
+<div id="div1">my name is Andy!</div>
+<button id="mybutton1">substring(3)</button><span></span><br>
+<button id="mybutton2">substring(3,6)</button><span></span><br>
+<button id="mybutton3">substring(16)</button><span></span><br>
+<button id="mybutton4">substring(-5,-3)</button><span></span><br>
+<button id="mybutton5">substring(-0)</button><span></span><br>
+<!--span必须紧随button，否则空格换行都会被认为下一个兄弟。-->
+</body>
+</html>
+<script>
+    function $(id) {
+        return document.getElementById(id);
+    }
+    function onButtonClick(id, text) {
+        $(id).onclick = function () {
+            this.nextSibling.innerHTML = text;
+        }
+    }
+    var sliceResultText1 = $("div1").innerHTML.substring(3);
+    onButtonClick("mybutton1", sliceResultText1);//name is Andy!
+
+    var sliceResultText2 = $("div1").innerHTML.substring(3,6);//从左向右，不包括右边界
+    onButtonClick("mybutton2", sliceResultText2);//nam
+
+    var sliceResultText3 = $("div1").innerHTML.substring(18);//越界取值为空字符串""。
+    onButtonClick("mybutton3", sliceResultText3);//""
+
+    var sliceResultText4 = $("div1").innerHTML.substring(-5,-3);//如果是负数,不兼容
+    onButtonClick("mybutton4", sliceResultText4);//""
+
+    var sliceResultText5 = $("div1").innerHTML.substring(-0);//如果是-0按0处理
+    onButtonClick("mybutton5", sliceResultText5);//my name is Andy!
+</script>

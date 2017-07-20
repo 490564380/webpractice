@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Operate String</title>
+</head>
+<body>
+<div id="div1">my name is Andy!</div>
+<div id="div2">What's your name?</div>
+<button id="mybutton">click</button><span></span>
+<!--span必须紧随button，否则空格换行都会被认为下一个兄弟。-->
+</body>
+</html>
+<script>
+    function $(id) {
+        return document.getElementById(id);
+    }
+    function onButtonClick(id, text) {
+        $(id).onclick = function () {
+            this.nextSibling.innerHTML = text;
+        }
+    }
+    var html = $("div2").innerHTML;
+    var concatResult = $("div1").innerHTML.concat(html);
+    onButtonClick("mybutton" , concatResult);
+</script>
